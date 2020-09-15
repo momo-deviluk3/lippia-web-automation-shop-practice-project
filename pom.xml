@@ -16,7 +16,7 @@
     <properties>
         <crowd.project.name>Lippia-web-example-project</crowd.project.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <crowdar.cucumber.filter>@Register</crowdar.cucumber.filter>
+        <crowdar.cucumber.filter>@Shopping</crowdar.cucumber.filter>
         <cucumber.runner>testng.xml</cucumber.runner>
         <crowdar.driverHub></crowdar.driverHub>
         <crowdar.projectType>WEB_CHROME</crowdar.projectType>
@@ -85,22 +85,22 @@
             </activation>
         </profile>
     </profiles>
-     <dependencies>
-       <dependency>
+    <dependencies>
+        <dependency>
             <groupId>io.lippia</groupId>
             <artifactId>core</artifactId>
             <version>3.1.2.2</version>
         </dependency>
-     </dependencies>
+    </dependencies>
     <build>
         <filters>
             <filter>src/main/resources/cucumber.properties</filter>
         </filters>
         <plugins>
             <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M4</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${cucumber.runner}</suiteXmlFile>
@@ -111,11 +111,11 @@
     </build>
 
     <repositories>
-		<repository>
-			<id>crowdarRepo</id>
-			<name>crowdar-repository</name>
-			<url>https://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
-		</repository>
-	</repositories>
+        <repository>
+            <id>crowdarRepo</id>
+            <name>crowdar-repository</name>
+            <url>https://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
+        </repository>
+    </repositories>
 
 </project>

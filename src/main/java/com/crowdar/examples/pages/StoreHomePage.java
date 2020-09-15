@@ -13,6 +13,7 @@ public class StoreHomePage extends PageBaseStore {
         this.url = "";
     }
 
+
     private final String SIGN_IN_BUTTON_CSS_SELECTOR = "#header > div.nav > div > div > nav > div.header_user_info > a";
     private final String CREATE_ACCOUNT_BUTTON_CSS_SELECTOR = "#SubmitCreate";
     private final String SIGNIN_BUTTON_CSS_SELECTOR = "#SubmitLogin";
@@ -22,6 +23,8 @@ public class StoreHomePage extends PageBaseStore {
     private final String EMAIL_INPUT_CREATE_CSS_SELECTOR = "#email_create";
     private final String EMAIL_INPUT_LOGIN_CSS_SELECTOR = "#email";
     private final String FORM_CSS_SELECTOR = "#noSlide > h1";
+    private final String INPUT_SEARCH_ID="search_query_top";
+    private final String BUTTON_SEARCH_CSS_SELECTOR="#searchbox > button";
 
     public void go(){
         navigateToCompleteURL();
@@ -30,6 +33,8 @@ public class StoreHomePage extends PageBaseStore {
     public void verificarHome(){
         Assert.assertTrue(isElementPresentAndDisplayed(By.id(SLIDER_HOME_ID)), "El elemento no es visible");
     }
+
+
 
     public void clickButton(String button){
         switch (button){
@@ -84,6 +89,11 @@ public class StoreHomePage extends PageBaseStore {
     public void enterEmail(String email){
         completeField(By.cssSelector(EMAIL_INPUT_CREATE_CSS_SELECTOR), email);
         completeField(By.cssSelector(EMAIL_INPUT_LOGIN_CSS_SELECTOR), email);
+    }
+
+    public void enterSearch(String busqueda){
+        completeField(By.id(INPUT_SEARCH_ID),busqueda);
+        clickElement(By.cssSelector(BUTTON_SEARCH_CSS_SELECTOR));
     }
 
     public void verifYForm(){
