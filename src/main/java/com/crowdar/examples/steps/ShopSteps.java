@@ -30,10 +30,9 @@ public class ShopSteps extends PageSteps {
     }
 
     @When("el cliente elige el <item>° producto")
-    public void elClienteEligeElNProducto(int item) {
+    public void elClienteEligeElItemProducto(int item) {
         Injector._page(ShopResultSearchPage.class).selectItem(item);
     }
-
     @Then("el cliente verifica que fue redireccionado a la pantalla del item seleccionado")
     public void elClienteVerificaQueFueRedireccionadoALaPantallaDelItemSeleccionado() {
         Injector._page(Product.class).verifyProduct();
