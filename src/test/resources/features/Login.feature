@@ -13,7 +13,5 @@ Feature: Como cliente, quiero ingresar los credenciales de mi cuenta, para ingre
 
     Examples:
       | email                                    | pass     |
-      | testing.crowdar@testing.net.com          | 12345    |
-      | testing.ssdddadwecrowdar@testing.net.com | asds1233 |
       | emanuel.videla@gmail.com                 | 13579    |
 

@@ -1,6 +1,6 @@
 Feature: como usuario logueado, quiero realizar una compra
 
-  @Shopping
+  @Shopping @Ignore
   Scenario Outline: el cliente busca un producto
     Given el cliente se encuentra en el buscador de productos
     When el cliente ingresa un <producto> en el buscador
@@ -11,18 +11,27 @@ Feature: como usuario logueado, quiero realizar una compra
       | dress    |
 
   @Shopping @Ignore
-  Scenario Outline: el cliente selecciona un producto
+  Scenario Outline: el cliente elige un producto
     Given el cliente se encuentra en la pantalla de resultados
-    When el cliente clickea un <producto>
-    And ingresa la <cantidad> a comprar
+    When el cliente elige el <item>° producto
+    Then el cliente verifica que fue redireccionado a la pantalla del item seleccionado
+
+    Examples:
+      | item  |
+      | 4     |
+
+  @Shopping
+  Scenario Outline: el cliente  el producto seleccionado
+    Given el cliente se encuentra en la pantalla del producto seleccionado
+    When ingresa la <cantidad> a comprar
     And seleciona un <talle>
     And selecciona un <color>
-    And hace click en el boton "add to cart"
+    And hace click en el boton para agregar al carrito de compra
     Then el cliente es redireccionado al carrito de compra
 
     Examples:
-      | producto      | cantidad| talle | color     |
-      | Model demo_4  | 1       | S     | color_24  |
+      | cantidad| talle   | color   |
+      | 2       | L       | Green   |
 
   @Shopping @Ignore
   Scenario: el cliente compra un producto
