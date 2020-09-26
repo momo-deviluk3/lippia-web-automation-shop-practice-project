@@ -22,7 +22,7 @@ public class Product extends PageBaseStore{
     private final String CONFIRM_PURCHASE_BUTTON_CSS_SELECTOR="#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a";
 
     public void verifyProduct(){
-        //waitVisibility(NAME_PRODUCT_SELECTED_CSS_SELECTOR);
+
         waitForElementVisibility(By.cssSelector(NAME_PRODUCT_SELECTED_CSS_SELECTOR));
         Assert.assertTrue(isElementVisible(By.cssSelector(NAME_PRODUCT_SELECTED_CSS_SELECTOR)));
     }

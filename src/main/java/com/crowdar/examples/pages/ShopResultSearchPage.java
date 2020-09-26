@@ -7,7 +7,9 @@ import org.testng.Assert;
 public class ShopResultSearchPage extends PageBaseStore{
 
 
-    private final String ITEM_CSS_SELECTOR="#center_column > ul > li > div > div > div > a.product_img_link";
+    private final String ITEM_CSS_SELECTOR="#center_column > ul > li:nth-child(1) > div";
+    private final String BUTTON_MORE_ITEM_CSS_SELECTOR="#center_column > ul > li > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default";
+
 
 
 
@@ -25,9 +27,7 @@ public class ShopResultSearchPage extends PageBaseStore{
     }
 
     public void selectItem(int item){
-        if(isElementPresentAndDisplayed(By.cssSelector(ITEM_CSS_SELECTOR))){
-            clickElement(By.cssSelector(ITEM_CSS_SELECTOR));
-        }
-
+        clickElement(By.cssSelector(ITEM_CSS_SELECTOR));
+        driver.findElementByCssSelector(BUTTON_MORE_ITEM_CSS_SELECTOR).click();
     }
 }

@@ -20,7 +20,7 @@ Feature: como usuario logueado, quiero realizar una compra
       | producto  |
       | 4         |
 
-  @Shopping @Ignore
+  @Shopping
   Scenario Outline: el cliente agrega el producto seleccionado al carrito de compras y confirma la compra
     Given el cliente se encuentra en la pantalla del producto seleccionado
     When ingresa la <cantidad> a comprar

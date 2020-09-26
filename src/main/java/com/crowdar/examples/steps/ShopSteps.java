@@ -20,7 +20,6 @@ public class ShopSteps extends PageSteps {
     @Then("el cliente verifica que es redireccionado a la pantalla de resultados")
     public void elClienteVerificaQueEsRedireccionadoALaPantallaDeResultados() {
         Injector._page(ShopResultSearchPage.class).verifyProduct();
-        //Assert.assertTrue(!Injector._page(ShopResultSearchPage.class).getStats().isEmpty());
 
     }
 
