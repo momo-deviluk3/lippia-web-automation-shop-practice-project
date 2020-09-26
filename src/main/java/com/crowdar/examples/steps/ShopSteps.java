@@ -28,9 +28,9 @@ public class ShopSteps extends PageSteps {
         Injector._page(ShopResultSearchPage.class).go();
     }
 
-    @When("el cliente elige el (.*)")
-    public void elClienteEligeElProducto(int producto) {
-        Injector._page(ShopResultSearchPage.class).selectItem(producto);
+    @When("el cliente elige un producto")
+    public void elClienteEligeUnProducto() {
+        Injector._page(ShopResultSearchPage.class).selectItem();
     }
 
     @Then("el cliente verifica que fue redireccionado a la pantalla del item seleccionado")

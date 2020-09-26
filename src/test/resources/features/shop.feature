@@ -11,14 +11,11 @@ Feature: como usuario logueado, quiero realizar una compra
       | dress    |
 
   @Shopping
-  Scenario Outline: el cliente elige un producto
+  Scenario: el cliente elige un producto
     Given el cliente se encuentra en la pantalla de resultados
-    When el cliente elige el <producto>
+    When el cliente elige un producto
     Then el cliente verifica que fue redireccionado a la pantalla del item seleccionado
 
-    Examples:
-      | producto  |
-      | 4         |
 
   @Shopping
   Scenario Outline: el cliente agrega el producto seleccionado al carrito de compras y confirma la compra

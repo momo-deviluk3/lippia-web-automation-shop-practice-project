@@ -7,7 +7,7 @@ import org.testng.Assert;
 public class ShopResultSearchPage extends PageBaseStore{
 
 
-    private final String ITEM_CSS_SELECTOR="#center_column > ul > li:nth-child(1) > div";
+    private final String PRODUCTO_SELECCIONADO_CSS_SELECTOR="#center_column > ul > li:nth-child(1) > div";
     private final String BUTTON_MORE_ITEM_CSS_SELECTOR="#center_column > ul > li > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default";
 
 
@@ -19,15 +19,15 @@ public class ShopResultSearchPage extends PageBaseStore{
     }
 
     public void verifyProduct(){
-        Assert.assertTrue(isElementVisible(By.cssSelector(ITEM_CSS_SELECTOR)));
+        Assert.assertTrue(isElementVisible(By.cssSelector(PRODUCTO_SELECCIONADO_CSS_SELECTOR)));
     }
 
     public void go(){
         navigateToCompleteURL();
     }
 
-    public void selectItem(int item){
-        clickElement(By.cssSelector(ITEM_CSS_SELECTOR));
+    public void selectItem(){
+        clickElement(By.cssSelector(PRODUCTO_SELECCIONADO_CSS_SELECTOR));
         driver.findElementByCssSelector(BUTTON_MORE_ITEM_CSS_SELECTOR).click();
     }
 }
