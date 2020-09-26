@@ -10,7 +10,7 @@ public class StoreHomePage extends PageBaseStore {
 
     public StoreHomePage(RemoteWebDriver driver) {
         super(driver);
-        this.url = "";
+        this.url = "/index.php";
     }
 
 

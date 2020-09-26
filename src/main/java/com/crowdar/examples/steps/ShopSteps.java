@@ -19,7 +19,7 @@ public class ShopSteps extends PageSteps {
 
     @Then("el cliente verifica que es redireccionado a la pantalla de resultados")
     public void elClienteVerificaQueEsRedireccionadoALaPantallaDeResultados() {
-        Injector._page(ShopResultSearchPage.class).verifYProduct();
+        Injector._page(ShopResultSearchPage.class).verifyProduct();
         //Assert.assertTrue(!Injector._page(ShopResultSearchPage.class).getStats().isEmpty());
 
     }
@@ -29,10 +29,11 @@ public class ShopSteps extends PageSteps {
         Injector._page(ShopResultSearchPage.class).go();
     }
 
-    @When("el cliente elige el <item>° producto")
-    public void elClienteEligeElItemProducto(int item) {
-        Injector._page(ShopResultSearchPage.class).selectItem(item);
+    @When("el cliente elige el (.*)")
+    public void elClienteEligeElProducto(int producto) {
+        Injector._page(ShopResultSearchPage.class).selectItem(producto);
     }
+
     @Then("el cliente verifica que fue redireccionado a la pantalla del item seleccionado")
     public void elClienteVerificaQueFueRedireccionadoALaPantallaDelItemSeleccionado() {
         Injector._page(Product.class).verifyProduct();
@@ -63,40 +64,35 @@ public class ShopSteps extends PageSteps {
         Injector._page(Product.class).addToCart();
     }
 
-    @Then("el cliente es redireccionado al carrito de compra")
-    public void elClienteEsRedireccionadoAlCarritoDeCompra() {
-        Injector._page(ShoppingCart.class).verifyPage();
+
+    @And("el cliente confirma la compra haciendo click en Proceed to checkout")
+    public void elClienteConfirmaLaCompraHaciendoClickEnProceedToCheckout() {
+        Injector._page(ShoppingCart.class).clickSummaryButton();
     }
 
-
-    @Given("el cliente se encuentra en el carrito de compras")
-    public void elClienteSeEncuentraEnElCarritoDeCompras() {
-        Injector._page(ShoppingCart.class).go();
+    @And("el cliente se loguea con (.*) y (.*)")
+    public void elClienteSeLoguea(String user,String pass) {
+        Injector._page(ShoppingCart.class).login(user,pass);
     }
 
-    @When("el cliente confirma la compra haciendo click en {string}")
-    public void elClienteConfirmaLaCompraHaciendoClickEn(String arg0) {
+    @And("el cliente confirma la direccion haciendo click en Proceed to checkout")
+    public void elClienteConfirmaLaDireccionHaciendoClickEnProceedToCheckout() {
+        Injector._page(ShoppingCart.class).clickAdressButton();
     }
 
-    @And("el cliente confirma la direccion haciendo click en {string}")
-    public void elClienteConfirmaLaDireccionHaciendoClickEn(String arg0) {
+    @And("el cliente acepta los terminos de servicio haciendo click en el checkbox y clickeando Proceed to checkout")
+    public void elClienteAceptaLosTerminosDeServicioHaciendoClickEnElCheckboxYClickeandoProceedToCheckout() {
+        Injector._page(ShoppingCart.class).clickShippingButton();
     }
 
-    @And("el cliente acepta los terminos de servicio haciendo click en el checkbox y clickeando {string}")
-    public void elClienteAceptaLosTerminosDeServicioHaciendoClickEnElCheckboxYClickeando(String arg0) {
+    @And("el cliente selecciona el (.*) deseado y confirma la orden haciendo click en I confirm my order")
+    public void elClienteSeleccionaElMetodo_de_pagoDeseado(String metodoPago) {
+        Injector._page(ShoppingCart.class).selectPaymentMethod(metodoPago);
     }
 
-    @And("el cliente selecciona un metodo de pago")
-    public void elClienteSeleccionaUnMetodoDePago() {
-
-    }
-
-    @And("confirma la orden haciendo click en {string}")
-    public void confirmaLaOrdenHaciendoClickEn(String arg0) {
-    }
-
-    @Then("el cliente es redireccionado a la pagina de {string}")
-    public void elClienteEsRedireccionadoALaPaginaDe(String arg0) {
+    @Then("el cliente es redireccionado a la pagina de Order Confirmation")
+    public void elClienteEsRedireccionadoALaPaginaDeOrderConfirmation() {
+        Injector._page(ShoppingCart.class).verifyOrder();
     }
 
 

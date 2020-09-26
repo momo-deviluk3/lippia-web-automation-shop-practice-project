@@ -15,15 +15,16 @@ public class Product extends PageBaseStore{
         this.url = "/index.php?id_product=7&controller=product&search_query=dresses&results=7";
     }
 
-    private final String DESCRIPTION_PRODUCT_SELECTED_ID="short_description_block";
+    private final String NAME_PRODUCT_SELECTED_CSS_SELECTOR="#center_column > div > div > div > h1";
     private final String CANTIDAD_PRODUCTS_ID="quantity_wanted";
     private final String TALLE_ID="group_1";
     private final String ADD_TO_CART_CSS_SELECTOR="#add_to_cart > button";
     private final String CONFIRM_PURCHASE_BUTTON_CSS_SELECTOR="#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a";
 
     public void verifyProduct(){
-        waitForElementVisibility(By.id(DESCRIPTION_PRODUCT_SELECTED_ID));
-        Assert.assertTrue(isElementVisible(By.id(DESCRIPTION_PRODUCT_SELECTED_ID)));
+        //waitVisibility(NAME_PRODUCT_SELECTED_CSS_SELECTOR);
+        waitForElementVisibility(By.cssSelector(NAME_PRODUCT_SELECTED_CSS_SELECTOR));
+        Assert.assertTrue(isElementVisible(By.cssSelector(NAME_PRODUCT_SELECTED_CSS_SELECTOR)));
     }
     public void go(){
         navigateToCompleteURL();
